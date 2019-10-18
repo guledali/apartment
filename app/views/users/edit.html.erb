@@ -1,0 +1,38 @@
+<div class="vh-100 vw-100 bg-image">
+  <div class="container pt-5">
+    <h1 class="display-3">Edit tenant</h1>
+  </div>
+
+  <%= errors_for(@user) %>
+
+  <div class="container mt-3 w-50">
+    <div class="row">
+      <div class="col-sm p5 border-black font-weight-bold py-3">
+        Name
+      </div>
+      <div class="col-sm border-black font-weight-bold border-black-left-right py-3">
+        Surname
+      </div>
+      <div class="col-sm border-black font-weight-bold py-3">
+        Updating profile
+      </div>
+    </div>
+
+    <%= form_with model: @user, local: true do |f| %>
+    <div class="row">
+      <div class="col-sm p5 border-black  py-3 border-top-0">
+        <%= f.text_field :name, class: "transparent-input" %>
+      </div>
+
+      <div class="col-sm border-black border-black-left-right py-3 border-top-0">
+        <%= f.text_field :surname, class: "transparent-input" %>
+      </div>
+
+      <div class="col-sm p5 border-black  py-3 border-top-0">
+        <%= f.submit class: "btn btn-success" %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+

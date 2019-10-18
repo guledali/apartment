@@ -1,0 +1,32 @@
+<div class="vh-100 vw-100 bg-image">
+  <div class="container pt-5">
+      <h1 class="display-3"> View all tenants</h1>
+
+    <% flash.each do |key, value| %>
+      <div class="<%= flash_class(key) %>">
+        <%= value %>
+      </div>
+    <% end %>
+
+    <table class="table table-bordered mx-auto w-50">
+      <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Surname</th>
+        <th scope="col">Profile</th>
+        <th scope="col">Edit</th>
+      </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+        <tr>
+          <td><%= link_to user.name, edit_user_path(user), class: "text-dark" %></td>
+          <td><%= link_to user.surname, edit_user_path(user), class: "text-dark" %></td>
+          <td><%= link_to 'View profile', user_path(user), class: "btn btn-success" %></td>
+          <td><%= link_to "Edit", edit_user_path(user), class: "btn btn-primary" %></td>
+        <% end %>
+      </tr>
+      </tbody>
+    </table>
+   </div>
+</div>
