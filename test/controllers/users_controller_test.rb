@@ -24,11 +24,13 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update user" do
-    patch user_path(@user), params: { user: { name: @user.name, surname: @user.surname }}
-
+    patch user_path(@user), params: { user: { name: "joe", surname: "bob" }}
+    
+    reload
+    assert_equal "joe", @user.name
+    
     assert_redirected_to root_url
     assert_not flash.empty?
   end
-
 
 end
